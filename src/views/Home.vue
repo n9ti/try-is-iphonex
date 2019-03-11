@@ -25,7 +25,6 @@ export default {
     closing(e) {
       e.preventDefault();
       e.returnValue = "";
-      console.log("hello");
       return false;
     }
   }
