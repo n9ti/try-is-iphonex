@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img v-if="isIPhoneX" alt="iPhone X" src="/img/iphonex.png">
+    <img v-else alt="Not iPhone X" src="/img/not-iphonex.png">
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import isIPhoneX from "is-iphonex";
 
 export default {
   name: "home",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      isIPhoneX: false
+    };
+  },
+  mounted() {
+    this.isIPhoneX = isIPhoneX();
   }
 };
 </script>
