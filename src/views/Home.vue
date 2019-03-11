@@ -15,8 +15,19 @@ export default {
       isIPhoneX: false
     };
   },
+  created() {
+    window.addEventListener("beforeunload", this.closing);
+  },
   mounted() {
     this.isIPhoneX = isIPhoneX();
+  },
+  methods: {
+    closing(e) {
+      e.preventDefault();
+      e.returnValue = "";
+      console.log("hello");
+      return false;
+    }
   }
 };
 </script>
